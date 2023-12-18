@@ -4,9 +4,9 @@
         <p class="my-5 mx-5" style="font-size: 30px;">Thank you for your Booking</p>
         <div class="row">
           <ul class="list-unstyled">
-            <li class="text-black">John Doe</li>
+            <li class="text-black">{{email}}</li>
             <li class="text-muted mt-1"><span class="text-black">Invoice</span> #12345</li>
-            <li class="text-black mt-1">April 17 2021</li>
+            <li class="text-black mt-1">{{date| date:'dd-MM-yyyy'}}</li>
           </ul>
           <hr>
           <div class="col-xl-10">

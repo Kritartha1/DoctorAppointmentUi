@@ -11,11 +11,18 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class BookedAppointmentComponent {
   private unsubscriber: Subject<void> = new Subject<void>();
-  constructor(private authService: AuthService, private router: Router) {
+  email?: string = '';
+  date: Date;
 
+  constructor(private authService: AuthService, private router: Router) {
+    this.date = new Date();
   }
 
+
+
   ngOnInit(): void {
+
+    this.email = localStorage.getItem('user-email') ?? '';
     history.pushState(null, '');
 
     fromEvent(window, 'popstate').pipe(
