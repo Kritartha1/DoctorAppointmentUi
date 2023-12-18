@@ -46,7 +46,6 @@ export class DoctorCardComponent implements OnInit {
   ngOnInit(): void {
     this.paramsSubscription = this.route.paramMap.subscribe(
       {
-
         next: (params) => {
           this.id = params.get('id');
           if (this.id) {
@@ -62,8 +61,6 @@ export class DoctorCardComponent implements OnInit {
               )
           }
         }
-
-
       }
     );
   }
@@ -139,6 +136,11 @@ export class DoctorCardComponent implements OnInit {
               console.log(this.router);
               // this.router.navigateByUrl('/');
               this.router.navigateByUrl('/slots/SlotBooked/pay');
+              if (this.doctor) {
+                localStorage.setItem('Doctor', this.doctor.name);
+                localStorage.setItem('Fee', this.doctor.fees.toString());
+              }
+
               alert("Slot booking was successful!");
 
             },

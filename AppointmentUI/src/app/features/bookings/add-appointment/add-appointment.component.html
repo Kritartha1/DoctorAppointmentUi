@@ -56,10 +56,10 @@
                 <tr>
                 
                   <th scope="row">1</th>  <!-- will contain the count as a serial number-->
-                  <td>Dr Ram</td> <!-- Doctor Name-->
+                  <td>{{docName}}</td> <!-- Doctor Name-->
                   <td>N/A</td>
-                  <td>Rs. 500</td>
-                  <td>Rs. 500</td>
+                  <td>Rs. {{fee}}</td>
+                  <td>Rs. {{fee}}</td>
                 </tr>
                 
               </tbody>
@@ -73,12 +73,12 @@
             </div>
             <div class="col-xl-3">
               <ul class="list-unstyled">
-                <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>Rs. 500</li>
+                <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>Rs. {{fee}}</li>
                 
                 
               </ul>
               <p class="text-black float-start"><span class="text-black me-3"> Total Amount</span><span
-                  style="font-size: 25px;">Rs. 500</span></p>
+                  style="font-size: 25px;">Rs. {{fee}}</span></p>
             </div>
           </div>
           <hr>
