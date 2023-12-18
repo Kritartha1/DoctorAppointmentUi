@@ -2,13 +2,14 @@
     <h1 class="mt-3">Your appointments</h1>
   
    
-    <ng-container *ngIf="user ">
+    <ng-container *ngIf="user && doctors ">
       <table class="table table-bordered mt-3">
         <thead>
           <tr>
-            <th>Id</th>
+            <!-- <th>Id</th> -->
+            <th>Date</th>
             <th>Start Time</th>
-            <th>Duration</th>
+            <th>Duration (mins)</th>
             <th>Doctor</th>
             <th>Fees</th>
             
@@ -16,21 +17,23 @@
         </thead>
   
         <tbody>
-          <tr *ngFor="let slot of slots; let i = index ">
-            <td>{{ slot.id }}</td>
-            <td>{{ slot.startTime }}</td>
+          <tr *ngFor="let slot of slots; let i=index"  >
+            <!-- <td >{{ slot.id }}</td> -->
+            <td [ngStyle]="{'background': isDateExpired(slot.startTime) ? '#e75252' : '#9fff80'}">{{ slot.startTime| date:'dd-MM-yyyy'}}</td>
+            <td>{{ slot.startTime| date:'h:mm a'}}</td>
+            
             <td>{{ slot.timeSpan}}</td>
+            <td>{{doctors[i]&&doctors[i]!.name}}</td>
+            <!-- && doctors[i] was written to supress type error-->
             <!-- <td>{{doctors[i]?.name}}</td> -->
-            <td>Dr Haha</td>
-            <td>Rs 1,00,000</td>
+            
+            <td>{{doctors[i]&&doctors[i]!.fee}}</td>
             
            
           </tr>
         </tbody>
       </table>
-      <p>
-        {{user.slots}}
-      </p>
+     
     </ng-container>
   </div>
   

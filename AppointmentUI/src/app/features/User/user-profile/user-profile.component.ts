@@ -96,12 +96,15 @@ export class UserProfileComponent implements OnInit, OnDestroy {
             this.editAddressSubscription = this.addressService.updateAddress(ad, updateAddressRequest)
               .subscribe({
                 next: (res) => {
-                  console.log(res);
+                  alert('Profile successfully updated!');
+
 
                 }
               });
-            console.log(response);
 
+          },
+          error: (err) => {
+            alert("Please fill all the fields");
           }
         });
 
